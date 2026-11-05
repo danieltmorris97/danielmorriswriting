@@ -2,7 +2,7 @@ name: Update latest articles
 
 on:
   schedule:
-    - cron: "23 */3 * * *" # every 3 hours (UTC)
+    - cron: "23 */3 * * *" # every 3 hours, on the clock in UTC
   workflow_dispatch: # "Run workflow" button on the Actions tab
   push:
     branches: [main]
