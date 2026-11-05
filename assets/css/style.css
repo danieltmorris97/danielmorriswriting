@@ -457,6 +457,10 @@ ul, ol { padding: 0; list-style: none; }
 .tt-platform .icon { width: 18px; height: 18px; color: var(--lime); }
 .tt-handle { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 3.4vw, 44px); line-height: 1; overflow-wrap: anywhere; transition: color 0.15s; }
 .tt-handle:hover { color: var(--lime); }
+.tt-profile { display: flex; align-items: center; gap: 18px; }
+.tt-avatar { flex: none; width: 88px; height: 88px; border-radius: 50%; border: 3px solid var(--lime); object-fit: cover; background: #fff; }
+.tt-profile-text { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+.tt-profile .tt-handle { font-size: clamp(26px, 2.6vw, 34px); }
 .tt-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tt-tags li { padding: 5px 10px 4px; border: 1px solid var(--line-strong); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); }
 .tt-id .btn { margin-top: 8px; }
@@ -509,6 +513,7 @@ ul, ol { padding: 0; list-style: none; }
 }
 @media (max-width: 520px) {
   .tt-id { padding: 22px 18px; }
+  .tt-avatar { width: 72px; height: 72px; }
   .tt-stats li { padding: 20px 14px; }
   .tt-top { padding: 20px 16px 22px; }
 }
