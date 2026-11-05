@@ -231,6 +231,21 @@ ul, ol { padding: 0; list-style: none; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
+/* Outlet logos are shown in white so they sit with the palette instead of fighting it */
+.logo-mark { display: block; width: auto; max-width: 100%; filter: brightness(0) invert(1); }
+.logo-hotspawn { height: 32px; }
+.logo-gamerant { height: 22px; }
+
+.hero-outlets {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 32px;
+  max-width: 520px; margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--line);
+}
+.hero-outlets-label { width: 100%; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.hero-outlets a { opacity: 0.7; transition: opacity 0.15s; }
+.hero-outlets a:hover { opacity: 1; }
+.hero-outlets .logo-hotspawn { height: 28px; }
+.hero-outlets .logo-gamerant { height: 19px; }
+
 /* Player card */
 .player-card {
   position: relative; width: 100%; max-width: 440px; justify-self: end;
@@ -345,10 +360,10 @@ ul, ol { padding: 0; list-style: none; }
   background: var(--panel); border-top: 3px solid var(--lime);
 }
 .latest-head {
-  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding-bottom: 14px; border-bottom: 1px solid var(--line-strong);
 }
-.latest-outlet { font-family: var(--display); font-weight: 800; font-size: 34px; line-height: 1; text-transform: uppercase; }
+.latest-outlet { display: flex; align-items: center; height: 32px; }
 .latest-role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); text-align: right; }
 .latest-list { flex: 1; }
 .latest-list .feed-row:hover { background: var(--panel-hover); }

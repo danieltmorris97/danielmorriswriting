@@ -37,6 +37,10 @@ ARROW = ('<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor
          'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7l-10 10" />'
          '<path d="M8 7l9 0l0 9" /></svg>')
 NEW_TAB = '<span class="sr-only"> (opens in a new tab)</span>'
+LOGOS = {  # file in assets/img/logos/, intrinsic width and height
+    "Hotspawn": ("hotspawn.webp", 640, 121),
+    "GameRant": ("gamerant.webp", 640, 88),
+}
 
 
 def fetch(url, attempts=3):
@@ -114,6 +118,11 @@ def get_gamerant(previous_dates):
     return items, count
 
 
+def logo_img(name):
+    file, w, h = LOGOS[name]
+    return f'<img class="logo-mark logo-{name.lower()}" src="assets/img/logos/{file}" width="{w}" height="{h}" alt="{name}">'
+
+
 def render_column(name, role, author_url, data):
     rows = []
     for it in data["items"][:ITEMS_PER_OUTLET]:
@@ -129,7 +138,7 @@ def render_column(name, role, author_url, data):
     return (
         f'          <div class="latest-col">\n'
         f'            <div class="latest-head">\n'
-        f'              <h3 class="latest-outlet">{name}</h3>\n'
+        f'              <h3 class="latest-outlet">{logo_img(name)}</h3>\n'
         f'              <span class="latest-role">{role}</span>\n'
         f'            </div>\n'
         f'            <ul class="latest-list">\n' + "\n".join(rows) + '\n'
