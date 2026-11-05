@@ -1,4 +1,4 @@
-"""Refresh the "Latest" feed and live article counts in index.html.
+"""Refresh the "Latest" feed, live article counts and TikTok stats in index.html.
 
 Runs on a schedule via .github/workflows/update-feed.yml, and can be run by hand:
     python scripts/update_feed.py
@@ -29,6 +29,7 @@ ITEMS_PER_OUTLET = 6
 HOTSPAWN_API = "https://www.hotspawn.com/wp-json/wp/v2/posts?author=130&per_page=10&_fields=date,link,title"
 HOTSPAWN_AUTHOR = "https://www.hotspawn.com/author/danielmorris"
 GAMERANT_AUTHOR = "https://gamerant.com/author/daniel-thomas-morris/"
+TIKTOK_PROFILE = "https://www.tiktok.com/@the.gaming.doxie"
 
 # Outlets that no longer change, added to the live counts for the headline total.
 ESPORTS_NET_ARTICLES = 629
@@ -124,6 +125,29 @@ def logo_img(name):
     return f'<img class="logo-mark logo-{name.lower()}" src="assets/img/logos/{file}" width="{w}" height="{h}" alt="{name}">'
 
 
+def get_tiktok():
+    body, _ = fetch(TIKTOK_PROFILE)
+    m = re.search(r'<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__"[^>]*>(.*?)</script>', body, re.S)
+    if not m:
+        raise RuntimeError("TikTok page had no profile data")
+    stats = json.loads(m.group(1))["__DEFAULT_SCOPE__"]["webapp.user-detail"]["userInfo"]["stats"]
+    out = {"followers": int(stats["followerCount"]),
+           "likes": int(stats.get("heartCount") or stats.get("heart") or 0),
+           "videos": int(stats["videoCount"])}
+    if not out["followers"]:
+        raise RuntimeError("TikTok returned no follower count")
+    return out
+
+
+def compact(n):
+    """22000 -> 22K, 2500000 -> 2.5M, the way TikTok itself shows counts."""
+    for size, suffix in ((1_000_000, "M"), (1_000, "K")):
+        if n >= size:
+            v = n / size
+            return (f"{v:.1f}".rstrip("0").rstrip(".") if v < 100 else f"{v:.0f}") + suffix
+    return str(n)
+
+
 def render_column(name, role, author_url, data):
     rows = []
     for it in data["items"][:ITEMS_PER_OUTLET]:
@@ -185,6 +209,13 @@ def main():
     except Exception as e:
         print(f"::warning::GameRant fetch failed, keeping previous data: {e}")
 
+    try:
+        state["tiktok"] = get_tiktok()
+        t = state["tiktok"]
+        print(f"TikTok: {t['followers']} followers, {t['likes']} likes, {t['videos']} videos")
+    except Exception as e:
+        print(f"::warning::TikTok fetch failed, keeping previous numbers: {e}")
+
     if not ok:
         print("::error::Every source failed; nothing updated")
         return 1
@@ -214,6 +245,11 @@ def main():
     page = replace_live(page, "total", f"{total:,}")
     page = re.sub(r'(<span data-count=")\d+(" data-live="total">)', rf"\g<1>{total}\g<2>", page)
     page = re.sub(r"with [\d,]+\+ articles across", f"with {total:,}+ articles across", page)
+    if "tiktok" in state:
+        t = state["tiktok"]
+        page = replace_live(page, "tiktok-followers", compact(t["followers"]))
+        page = replace_live(page, "tiktok-likes", compact(t["likes"]))
+        page = replace_live(page, "tiktok-videos", f"{t['videos']:,}")
 
     STATE.parent.mkdir(exist_ok=True)
     STATE.write_text(json.dumps(state, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")

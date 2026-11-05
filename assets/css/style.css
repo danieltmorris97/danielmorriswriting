@@ -449,6 +449,53 @@ ul, ol { padding: 0; list-style: none; }
   .iv-card-name { font-size: 22px; }
 }
 
+/* ---------- Social (TikTok) ---------- */
+
+.tt-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); background: var(--panel); border-top: 3px solid var(--lime); }
+.tt-id { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 28px; border-right: 1px solid var(--line); }
+.tt-platform { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.tt-platform .icon { width: 18px; height: 18px; color: var(--lime); }
+.tt-handle { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 3.4vw, 44px); line-height: 1; overflow-wrap: anywhere; transition: color 0.15s; }
+.tt-handle:hover { color: var(--lime); }
+.tt-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tt-tags li { padding: 5px 10px 4px; border: 1px solid var(--line-strong); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); }
+.tt-id .btn { margin-top: 8px; }
+.tt-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tt-stats li { display: flex; flex-direction: column; justify-content: center; padding: 24px 28px; }
+.tt-stats li:nth-child(even) { border-left: 1px solid var(--line); }
+.tt-stats li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+
+.tt-top { grid-column: 1 / -1; padding: 24px 28px 26px; border-top: 1px solid var(--line); }
+.tt-top-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 8px; }
+.tt-top-title { font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; text-transform: uppercase; }
+.tt-top-note { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime); }
+.tt-top-list li {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr) minmax(0, 28%) 56px; align-items: center; gap: 16px;
+  padding: 13px 0; border-bottom: 1px solid var(--line);
+}
+.tt-top-list li:last-child { border-bottom: 0; }
+.tt-rank { font-family: var(--mono); font-size: 13px; color: var(--text-3); }
+.tt-top-list li:first-child .tt-rank { color: var(--lime); }
+.tt-name { font-weight: 500; font-size: 15px; line-height: 1.4; }
+.tt-part { margin-left: 6px; font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); white-space: nowrap; }
+.tt-bar { position: relative; height: 6px; background: var(--line); }
+.tt-bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--lime); }
+.tt-views { font-family: var(--display); font-weight: 800; font-size: 22px; line-height: 1; text-align: right; }
+
+@media (max-width: 880px) {
+  .tt-panel { grid-template-columns: minmax(0, 1fr); }
+  .tt-id { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .tt-top-list li { grid-template-columns: 32px minmax(0, 1fr) 52px; gap: 8px 12px; }
+  .tt-bar { grid-column: 2 / 3; grid-row: 2; }
+}
+@media (max-width: 520px) {
+  .tt-id { padding: 22px 18px; }
+  .tt-stats li { padding: 20px 14px; }
+  .tt-top { padding: 20px 16px 22px; }
+}
+
 /* ---------- Work archive ---------- */
 
 .filters { display: grid; gap: 14px; margin-bottom: 28px; }
