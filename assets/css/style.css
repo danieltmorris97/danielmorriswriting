@@ -565,6 +565,7 @@ ul, ol { padding: 0; list-style: none; }
 /* ---------- Utilities ---------- */
 
 [hidden] { display: none !important; }
+.nowrap { white-space: nowrap; }
 .work-link { display: flex; flex-direction: column; height: 100%; }
 .inline-link { color: var(--lime); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .inline-link:hover { text-decoration-thickness: 2px; }
