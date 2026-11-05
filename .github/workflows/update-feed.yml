@@ -6,9 +6,11 @@ on:
   workflow_dispatch: # "Run workflow" button on the Actions tab
   push:
     branches: [main]
-    paths:
+    paths: # also re-stamps the CSS/JS version tags when those files change
       - scripts/update_feed.py
       - .github/workflows/update-feed.yml
+      - assets/css/**
+      - assets/js/**
 
 permissions:
   contents: write
@@ -37,7 +39,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html data/feed.json
+          git add index.html 404.html data/feed.json
           git commit -m "Update latest articles"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"

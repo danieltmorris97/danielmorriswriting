@@ -42,6 +42,7 @@ The filter counts are typed into the filter buttons near `data-filter="type"`, s
 Every 3 hours GitHub runs `scripts/update_feed.py`. It pulls my six newest Hotspawn and GameRant stories and refreshes the article counts (the Bylines panels, the headline total and the About text). If anything changed, it commits the update and the live site follows a minute or two later. Those commits come from **github-actions[bot]**.
 
 - Don't hand-edit between `<!-- feed:start -->` and `<!-- feed:end -->` in `index.html`; the next run overwrites it.
+- The script also stamps the stylesheet and script links with a version tag (`style.css?v=…`) so visitors never get a stale copy after a change. It does this automatically whenever those files change.
 - To refresh right now: GitHub → **Actions** → **Update latest articles** → **Run workflow**.
 - If a site can't be reached, the feed keeps its last good headlines. If GameRant changes its page layout, the run shows a warning on the Actions tab.
 - GitHub pauses scheduled jobs in repositories with no activity for 60 days. The bot's own commits count as activity, so this only matters if I stop publishing for two months; re-enable it from the Actions tab if so.

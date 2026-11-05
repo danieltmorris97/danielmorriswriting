@@ -8,6 +8,7 @@ headlines and count (kept in data/feed.json) are reused so the page never
 loses content; the script only fails if every source fails.
 """
 import base64
+import hashlib
 import html
 import json
 import math
@@ -148,6 +149,14 @@ def render_column(name, role, author_url, data):
         f'          </div>')
 
 
+def stamp_assets(page):
+    """Version the CSS/JS links by content hash so browsers never pair a new page with a cached old stylesheet."""
+    for rel in ("assets/css/style.css", "assets/js/main.js"):
+        digest = hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
+        page = re.sub(rf'({re.escape(rel)})(\?v=[0-9a-f]+)?"', rf'\g<1>?v={digest}"', page)
+    return page
+
+
 def replace_live(page, key, text):
     page, n = re.subn(rf'(<span[^>]*\sdata-live="{key}"[^>]*>)[^<]*(</span>)', rf"\g<1>{text}\g<2>", page)
     if not n:
@@ -208,7 +217,9 @@ def main():
 
     STATE.parent.mkdir(exist_ok=True)
     STATE.write_text(json.dumps(state, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    INDEX.write_text(page, encoding="utf-8", newline="\n")
+    INDEX.write_text(stamp_assets(page), encoding="utf-8", newline="\n")
+    not_found = ROOT / "404.html"
+    not_found.write_text(stamp_assets(not_found.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     print(f"Total shown: {total:,}+")
     return 0
 
