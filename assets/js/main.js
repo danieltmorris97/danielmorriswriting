@@ -94,6 +94,76 @@
     counters.forEach(function (el) { counterObs.observe(el); });
   }
 
+  // ---- Interviews: play inline. Nothing loads from YouTube until someone clicks play. ----
+  var stage = document.getElementById("iv-player");
+  if (stage && stage.querySelector(".iv-facade")) {
+    var ivCards = Array.prototype.slice.call(document.querySelectorAll(".iv-card"));
+    var facadeTpl = stage.querySelector(".iv-facade").cloneNode(true);
+    var now = {
+      name: document.querySelector(".iv-now-name"),
+      meta: document.querySelector(".iv-now-meta"),
+      quote: document.querySelector(".iv-now-quote"),
+      read: document.querySelector('.iv-now-links [data-role="read"]'),
+      watch: document.querySelector('.iv-now-links [data-role="watch"]')
+    };
+
+    var play = function (id, name) {
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1";
+      frame.title = name + " interview";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      frame.allowFullscreen = true;
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      stage.replaceChildren(frame);
+    };
+
+    var showFacade = function (card) {
+      var f = facadeTpl.cloneNode(true);
+      var id = card.getAttribute("data-video");
+      var name = card.getAttribute("data-name");
+      f.href = id ? "https://www.youtube.com/watch?v=" + id : card.getAttribute("data-read");
+      f.setAttribute("data-video", id);
+      f.classList.toggle("is-written", !id);
+      f.querySelector("img").src = card.getAttribute("data-img");
+      f.querySelector(".sr-only").textContent = id ? "Play the " + name + " interview" : "Read the " + name + " interview (opens in a new tab)";
+      stage.replaceChildren(f);
+    };
+
+    var select = function (card) {
+      ivCards.forEach(function (c) { c.removeAttribute("aria-current"); });
+      card.setAttribute("aria-current", "true");
+      var id = card.getAttribute("data-video");
+      now.name.textContent = card.getAttribute("data-name");
+      now.meta.textContent = card.getAttribute("data-meta");
+      now.quote.textContent = "“" + card.getAttribute("data-quote") + "”";
+      now.read.href = card.getAttribute("data-read");
+      now.watch.hidden = !id;
+      if (id) now.watch.href = "https://www.youtube.com/watch?v=" + id;
+    };
+
+    stage.addEventListener("click", function (e) {
+      var f = e.target.closest(".iv-facade");
+      if (!f || !f.getAttribute("data-video")) return; // written-only: follow the link to the article
+      e.preventDefault();
+      var current = document.querySelector('.iv-card[aria-current="true"]');
+      play(f.getAttribute("data-video"), current ? current.getAttribute("data-name") : "Video");
+    });
+
+    ivCards.forEach(function (card) {
+      card.addEventListener("click", function (e) {
+        e.preventDefault();
+        select(card);
+        var id = card.getAttribute("data-video");
+        if (id) play(id, card.getAttribute("data-name"));
+        else showFacade(card);
+        var r = stage.getBoundingClientRect();
+        if (r.top < 64 || r.bottom > window.innerHeight) {
+          stage.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+        }
+      });
+    });
+  }
+
   // ---- Copy email button (only shown where the clipboard API works) ----
   document.querySelectorAll(".email-copy").forEach(function (btn) {
     if (!(navigator.clipboard && window.isSecureContext)) return;

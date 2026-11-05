@@ -393,30 +393,61 @@ ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Interviews ---------- */
 
-.interviews { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.interview {
-  position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; background: var(--panel);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--chamfer)), calc(100% - var(--chamfer)) 100%, 0 100%);
-}
-.interview img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(0.35) contrast(1.05); transition: transform 0.5s, filter 0.3s;
-}
-.interview::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(10, 12, 16, 0) 35%, rgba(10, 12, 16, 0.92) 100%);
-}
-.interview:hover img { transform: scale(1.05); filter: none; }
-.interview-body { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: 18px; }
-.interview-team { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lime); }
-.interview-name { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(30px, 3vw, 40px); line-height: 1; margin: 2px 0 6px; }
-.interview-event { font-family: var(--mono); font-size: 11px; color: var(--text-2); }
-.interview::before {
-  content: ""; position: absolute; z-index: 2; left: 0; top: 0; width: 0; height: 3px; background: var(--lime); transition: width 0.3s;
-}
-.interview:hover::before { width: 100%; }
+.iv-stage { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 12px; margin-bottom: 12px; }
 
-@media (max-width: 900px) { .interviews { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.iv-player { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+.iv-player iframe, .iv-facade, .iv-facade img { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.iv-facade img { object-fit: cover; transition: transform 0.5s, filter 0.3s; }
+.iv-facade::after { content: ""; position: absolute; inset: 0; background: rgba(10, 12, 16, 0.18); transition: background-color 0.2s; }
+.iv-facade:hover::after { background: rgba(10, 12, 16, 0.05); }
+.iv-facade:hover img { transform: scale(1.02); }
+.iv-play {
+  position: absolute; z-index: 1; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: grid; place-items: center; min-width: 84px; height: 84px; padding: 0 18px;
+  background: var(--lime); color: var(--on-lime);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  transition: transform 0.15s;
+}
+.iv-play svg { width: 34px; height: 34px; margin-left: 4px; }
+.iv-play-read { display: none; font-family: var(--display); font-weight: 800; font-size: 26px; text-transform: uppercase; }
+.iv-facade.is-written .iv-play svg { display: none; }
+.iv-facade.is-written .iv-play-read { display: block; }
+.iv-facade:hover .iv-play { transform: translate(-50%, -50%) scale(1.06); }
+
+.iv-now { display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--panel); border-top: 3px solid var(--lime); }
+.iv-now-label { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); }
+.iv-now-name { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 5vw, 64px); line-height: 0.9; margin-top: 4px; }
+.iv-now-meta { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--text-2); }
+.iv-now-quote { margin: 8px 0 0; padding-left: 14px; border-left: 3px solid var(--lime); font-size: 17px; line-height: 1.55; }
+.iv-now-links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+
+.iv-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.iv-card { display: flex; flex-direction: column; height: 100%; background: var(--panel); border: 1px solid transparent; transition: background-color 0.15s, border-color 0.15s; }
+.iv-card:hover { background: var(--panel-hover); }
+.iv-card[aria-current="true"] { border-color: var(--lime); }
+.iv-thumb { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-raised); }
+.iv-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.iv-card:hover .iv-thumb img { transform: scale(1.04); }
+.iv-badge {
+  position: absolute; left: 0; bottom: 0; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px 4px;
+  background: var(--lime); color: var(--on-lime); font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.iv-badge svg { width: 11px; height: 11px; }
+.iv-card.is-written .iv-badge { background: var(--bg); color: var(--text-2); }
+.iv-card-body { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px 14px; }
+.iv-card-name { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; }
+.iv-card[aria-current="true"] .iv-card-name { color: var(--lime); }
+.iv-card-meta { font-family: var(--mono); font-size: 11px; line-height: 1.5; color: var(--text-3); }
+
+@media (max-width: 1020px) {
+  .iv-stage { grid-template-columns: minmax(0, 1fr); }
+  .iv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .iv-now { padding: 18px 16px; }
+  .iv-card-body { padding: 10px 12px 12px; }
+  .iv-card-name { font-size: 22px; }
+}
 
 /* ---------- Work archive ---------- */
 
