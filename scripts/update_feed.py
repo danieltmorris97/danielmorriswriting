@@ -139,6 +139,27 @@ def get_tiktok():
     return out
 
 
+def get_tiktok_plays(video_id):
+    body, _ = fetch(f"https://www.tiktok.com/@the.gaming.doxie/video/{video_id}")
+    m = re.search(r'<script id="__UNIVERSAL_DATA_FOR_REHYDRATION__"[^>]*>(.*?)</script>', body, re.S)
+    if not m:
+        raise RuntimeError("video page had no data")
+    item = json.loads(m.group(1))["__DEFAULT_SCOPE__"]["webapp.video-detail"]["itemInfo"]["itemStruct"]
+    return int(item["stats"]["playCount"])
+
+
+def update_tiktok_views(page, views):
+    """Rewrite each featured video's view count and its bar (scaled to the most-viewed one)."""
+    known = {k: v for k, v in views.items() if f'data-tt-views="{k}"' in page}
+    if not known:
+        return page
+    peak = max(known.values())
+    for vid, plays in known.items():
+        page = re.sub(rf'(<span class="tt-views" data-tt-views="{vid}">)[^<]*', rf"\g<1>{compact(plays)}", page)
+        page = re.sub(rf'(data-tt-bar="{vid}" style="--w: )\d+(%")', rf"\g<1>{round(plays / peak * 100)}\g<2>", page)
+    return page
+
+
 def compact(n):
     """22000 -> 22K, 2500000 -> 2.5M, the way TikTok itself shows counts."""
     for size, suffix in ((1_000_000, "M"), (1_000, "K")):
@@ -216,6 +237,18 @@ def main():
     except Exception as e:
         print(f"::warning::TikTok fetch failed, keeping previous numbers: {e}")
 
+    # Featured TikTok videos are whatever index.html lists (data-tt-views="<id>")
+    featured = re.findall(r'data-tt-views="(\d+)"', INDEX.read_text(encoding="utf-8"))
+    views = state.get("tiktok_videos", {})
+    for vid in featured:
+        try:
+            views[vid] = get_tiktok_plays(vid)
+        except Exception as e:
+            print(f"::warning::TikTok video {vid} fetch failed, keeping previous views: {e}")
+    state["tiktok_videos"] = {k: views[k] for k in featured if k in views}
+    if featured:
+        print(f"TikTok videos: views refreshed for {len(state['tiktok_videos'])} of {len(featured)}")
+
     if not ok:
         print("::error::Every source failed; nothing updated")
         return 1
@@ -250,6 +283,7 @@ def main():
         page = replace_live(page, "tiktok-followers", compact(t["followers"]))
         page = replace_live(page, "tiktok-likes", compact(t["likes"]))
         page = replace_live(page, "tiktok-videos", f"{t['videos']:,}")
+    page = update_tiktok_views(page, state.get("tiktok_videos", {}))
 
     STATE.parent.mkdir(exist_ok=True)
     STATE.write_text(json.dumps(state, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")

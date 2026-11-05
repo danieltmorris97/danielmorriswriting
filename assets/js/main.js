@@ -164,6 +164,39 @@
     });
   }
 
+  // ---- TikTok: one video at a time, loaded only when someone presses play ----
+  var ttPlayer = document.getElementById("tt-player");
+  if (ttPlayer) {
+    var ttRows = Array.prototype.slice.call(document.querySelectorAll(".tt-row"));
+    var ttPlay = function (id, title) {
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.tiktok.com/player/v1/" + id + "?autoplay=1&rel=0&description=0&music_info=0&native_context_menu=0";
+      frame.title = title || "TikTok video";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share";
+      frame.allowFullscreen = true;
+      ttPlayer.replaceChildren(frame);
+    };
+    ttPlayer.addEventListener("click", function (e) {
+      var f = e.target.closest(".tt-facade");
+      if (!f) return;
+      e.preventDefault();
+      var current = document.querySelector('.tt-row[aria-current="true"]');
+      ttPlay(f.getAttribute("data-tt"), current && current.getAttribute("data-title"));
+    });
+    ttRows.forEach(function (row) {
+      row.addEventListener("click", function (e) {
+        e.preventDefault();
+        ttRows.forEach(function (r) { r.removeAttribute("aria-current"); });
+        row.setAttribute("aria-current", "true");
+        ttPlay(row.getAttribute("data-tt"), row.getAttribute("data-title"));
+        var r = ttPlayer.getBoundingClientRect();
+        if (r.top < 64 || r.bottom > window.innerHeight) {
+          ttPlayer.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+        }
+      });
+    });
+  }
+
   // ---- Copy email button (only shown where the clipboard API works) ----
   document.querySelectorAll(".email-copy").forEach(function (btn) {
     if (!(navigator.clipboard && window.isSecureContext)) return;

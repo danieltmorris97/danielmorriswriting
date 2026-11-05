@@ -41,7 +41,7 @@ The filter counts are typed into the filter buttons near `data-filter="type"`, s
 
 Every 3 hours GitHub runs `scripts/update_feed.py`. It pulls my six newest Hotspawn and GameRant stories and refreshes the article counts (the Bylines panels, the headline total and the About text). If anything changed, it commits the update and the live site follows a minute or two later. Those commits come from **github-actions[bot]**.
 
-- It also refreshes The Gaming Doxie's TikTok follower, like and video counts. The "Most watched" leaderboard and the "30M+ video views" figure are typed in by hand (TikTok doesn't share per-video views with scripts); update them in `index.html` under `tt-top-list`.
+- It also refreshes The Gaming Doxie's TikTok follower, like and video counts, plus the view count and bar for each "Featured videos" row. To change which videos are featured, edit the rows under `tt-top-list` in `index.html` (each row's `data-tt` is the video ID, and its cover lives in `assets/img/tiktok/<id>.webp`). The "30M+ video views" and "14 videos past 1M views" figures are typed in by hand.
 - Don't hand-edit between `<!-- feed:start -->` and `<!-- feed:end -->` in `index.html`; the next run overwrites it.
 - The script also stamps the stylesheet and script links with a version tag (`style.css?v=…`) so visitors never get a stale copy after a change. It does this automatically whenever those files change.
 - To refresh right now: GitHub → **Actions** → **Update latest articles** → **Run workflow**.
