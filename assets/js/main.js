@@ -94,6 +94,28 @@
     counters.forEach(function (el) { counterObs.observe(el); });
   }
 
+  // ---- Copy email button (only shown where the clipboard API works) ----
+  document.querySelectorAll(".email-copy").forEach(function (btn) {
+    if (!(navigator.clipboard && window.isSecureContext)) return;
+    btn.hidden = false;
+    var label = btn.querySelector("span");
+    var announce = btn.parentElement.querySelector("[data-copy-status]");
+    var timer;
+    btn.addEventListener("click", function () {
+      navigator.clipboard.writeText(btn.getAttribute("data-copy")).then(function () {
+        btn.classList.add("is-copied");
+        label.textContent = "Copied";
+        if (announce) announce.textContent = "Email address copied";
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          btn.classList.remove("is-copied");
+          label.textContent = "Copy";
+          if (announce) announce.textContent = "";
+        }, 2000);
+      });
+    });
+  });
+
   // ---- Work archive filters ----
   var grid = document.getElementById("work-grid");
   if (!grid) return;
