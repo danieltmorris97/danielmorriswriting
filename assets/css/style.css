@@ -231,8 +231,12 @@ ul, ol { padding: 0; list-style: none; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
-/* Outlet logos are shown in white so they sit with the palette instead of fighting it */
-.logo-mark { display: block; width: auto; max-width: 100%; filter: brightness(0) invert(1); }
+/* Outlet logos rest in white so they sit with the palette, and show their real colours on hover */
+.logo-mark { display: block; width: auto; max-width: 100%; filter: brightness(0) invert(1); transition: filter 0.25s ease; }
+.hero-outlets a:hover .logo-mark,
+.hero-outlets a:focus-visible .logo-mark,
+.latest-col:hover .logo-mark,
+.latest-col:focus-within .logo-mark { filter: brightness(1) invert(0); }
 .logo-hotspawn { height: 32px; }
 .logo-gamerant { height: 22px; }
 
