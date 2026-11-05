@@ -6,7 +6,10 @@ My writing portfolio. It's a plain static site (HTML, CSS and a little JavaScrip
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The whole homepage: intro, bylines, columns, interviews, the archive, about and contact |
+| `index.html` | The whole homepage: intro, bylines, latest articles, interviews, the archive, about and contact |
+| `scripts/update_feed.py` | Fetches my latest Hotspawn and GameRant headlines and article counts |
+| `.github/workflows/update-feed.yml` | Runs that script on GitHub every 3 hours |
+| `data/feed.json` | The last headlines and counts the script fetched |
 | `assets/css/style.css` | All the styling (colours are at the top, under `:root`) |
 | `assets/js/main.js` | Archive filters, mobile menu, scroll animations |
 | `assets/img/work/` | Article thumbnails |
@@ -34,10 +37,17 @@ My writing portfolio. It's a plain static site (HTML, CSS and a little JavaScrip
 
 The filter counts are typed into the filter buttons near `data-filter="type"`, so bump those numbers if you want them exact.
 
-## Updating the "Latest from Hotspawn" list and columns
+## The "Latest bylines" feed updates itself
 
-Search `index.html` for `Latest from Hotspawn` or a column name (e.g. `VRS Shift`) and edit the headline, date and link in place.
+Every 3 hours GitHub runs `scripts/update_feed.py`. It pulls my six newest Hotspawn and GameRant stories and refreshes the article counts (the Bylines panels, the headline total and the About text). If anything changed, it commits the update and the live site follows a minute or two later. Those commits come from **github-actions[bot]**.
+
+- Don't hand-edit between `<!-- feed:start -->` and `<!-- feed:end -->` in `index.html`; the next run overwrites it.
+- To refresh right now: GitHub → **Actions** → **Update latest articles** → **Run workflow**.
+- If a site can't be reached, the feed keeps its last good headlines. If GameRant changes its page layout, the run shows a warning on the Actions tab.
+- GitHub pauses scheduled jobs in repositories with no activity for 60 days. The bot's own commits count as activity, so this only matters if I stop publishing for two months; re-enable it from the Actions tab if so.
 
 ## Publishing changes
 
-Once the site is on GitHub, edit a file on github.com (pencil icon → **Commit changes**) and the live site updates within a minute or two.
+Edit a file on github.com (pencil icon → **Commit changes**) and the live site updates within a minute or two.
+
+If editing a local copy instead, run `git pull` before starting, because the feed bot commits to the repository several times a day.
