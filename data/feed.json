@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1031,
+  "count": 1032,
   "items": [
+   {
+    "title": "NAVI and BetBoom progress to IEM Beijing 2026 Semi-Finals",
+    "url": "https://www.hotspawn.com/counter-strike/news/navi-and-betboom-progress-to-iem-beijing-2026-semi-finals",
+    "date": "2026-11-06"
+   },
    {
     "title": "BetBoom and NAVI take final IEM Beijing 2026 Playoff berths",
     "url": "https://www.hotspawn.com/counter-strike/news/betboom-and-navi-take-final-iem-beijing-2026-playoff-berths",
@@ -45,11 +50,6 @@
    {
     "title": "New CS2 gun rumors intensify after more file leaks",
     "url": "https://www.hotspawn.com/counter-strike/news/new-cs2-gun-rumors",
-    "date": "2026-10-29"
-   },
-   {
-    "title": "Nemiga, FURIA, and NAVI take final PGL Masters Bucharest 2026 Playoff berths",
-    "url": "https://www.hotspawn.com/counter-strike/news/nemiga-furia-and-navi-take-final-pgl-masters-bucharest-2026-playoff-berths",
     "date": "2026-10-29"
    }
   ]
