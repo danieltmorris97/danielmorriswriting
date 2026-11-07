@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1032,
+  "count": 1033,
   "items": [
+   {
+    "title": "The MongolZ slam NAVI in two to reach IEM Beijing 2026 Grand Final",
+    "url": "https://www.hotspawn.com/counter-strike/news/the-mongolz-reach-iem-beijing-2026-grand-final",
+    "date": "2026-11-07"
+   },
    {
     "title": "NAVI and BetBoom progress to IEM Beijing 2026 Semi-Finals",
     "url": "https://www.hotspawn.com/counter-strike/news/navi-and-betboom-progress-to-iem-beijing-2026-semi-finals",
@@ -45,11 +50,6 @@
    {
     "title": "Vitality march on as PGL Masters Bucharest 2026 Quarter-Finals conclude",
     "url": "https://www.hotspawn.com/counter-strike/news/pgl-masters-bucharest-2026-quarter-finals-review",
-    "date": "2026-10-29"
-   },
-   {
-    "title": "New CS2 gun rumors intensify after more file leaks",
-    "url": "https://www.hotspawn.com/counter-strike/news/new-cs2-gun-rumors",
     "date": "2026-10-29"
    }
   ]
@@ -120,7 +120,7 @@
   ]
  },
  "tiktok": {
-  "followers": 21900,
+  "followers": 21800,
   "likes": 2600000,
   "videos": 155
  },
