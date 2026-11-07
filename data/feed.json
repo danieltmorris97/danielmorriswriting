@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1033,
+  "count": 1034,
   "items": [
+   {
+    "title": "MOUZ demolish BetBoom and head to IEM Beijing 2026 Grand Final",
+    "url": "https://www.hotspawn.com/counter-strike/news/mouz-demolish-betboom-and-head-to-iem-beijing-2026-grand-final",
+    "date": "2026-11-07"
+   },
    {
     "title": "The MongolZ slam NAVI in two to reach IEM Beijing 2026 Grand Final",
     "url": "https://www.hotspawn.com/counter-strike/news/the-mongolz-reach-iem-beijing-2026-grand-final",
@@ -46,17 +51,22 @@
     "title": "Nemiga stun Vitality to reach PGL Masters Bucharest 2026 Grand Final",
     "url": "https://www.hotspawn.com/counter-strike/news/nemiga-stun-vitality-to-reach-pgl-masters-bucharest-2026-grand-final",
     "date": "2026-10-30"
-   },
-   {
-    "title": "Vitality march on as PGL Masters Bucharest 2026 Quarter-Finals conclude",
-    "url": "https://www.hotspawn.com/counter-strike/news/pgl-masters-bucharest-2026-quarter-finals-review",
-    "date": "2026-10-29"
    }
   ]
  },
  "gamerant": {
-  "count": 1769,
+  "count": 1771,
   "items": [
+   {
+    "title": "The Witcher: No Man’s Land Officially Announced for November 17",
+    "url": "https://gamerant.com/the-witcher-no-mans-land-gamefound-release/",
+    "date": "2026-11-07"
+   },
+   {
+    "title": "Game of Thrones: Rose of the South Officially Revealed",
+    "url": "https://gamerant.com/game-of-thrones-conquest-rose-of-the-south-gear-set/",
+    "date": "2026-11-07"
+   },
    {
     "title": "Final Fantasy 14: Night in the Brume Officially Revealed",
     "url": "https://gamerant.com/final-fantasy-14-ff14-night-in-the-brume-music-box/",
@@ -106,16 +116,6 @@
     "title": "LEGO Fan Transforms Marvel Infinity Gauntlet Set Into Millennium Falcon With No Extra Pieces",
     "url": "https://gamerant.com/lego-marvel-infinity-gauntlet-set-custom-millennium-falcon-build/",
     "date": "2026-11-02"
-   },
-   {
-    "title": "Jon Snow Officially Returns in Game of Thrones: Crow of the Free Folk",
-    "url": "https://gamerant.com/game-of-thrones-legends-crow-of-the-free-folk-summon-event-jon-snow/",
-    "date": "2026-11-01"
-   },
-   {
-    "title": "New $1,105 Warcraft Release Officially Announced for 2027",
-    "url": "https://gamerant.com/warcraft-rexxar-misha-statue-2027/",
-    "date": "2026-11-01"
    }
   ]
  },
@@ -131,7 +131,7 @@
   "7593458460151254294": 1200000,
   "7600500931897101590": 1100000,
   "7584916975340539158": 1000000,
-  "7590110537942306070": 839000,
+  "7590110537942306070": 839100,
   "7610516609177865494": 565600,
   "7574897114036145430": 392500,
   "7609775208869711126": 387400
