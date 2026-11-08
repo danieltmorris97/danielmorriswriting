@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1034,
+  "count": 1035,
   "items": [
+   {
+    "title": "MOUZ complete flawless run to win IEM Beijing 2026",
+    "url": "https://www.hotspawn.com/counter-strike/news/mouz-win-iem-beijing-2026",
+    "date": "2026-11-08"
+   },
    {
     "title": "MOUZ demolish BetBoom and head to IEM Beijing 2026 Grand Final",
     "url": "https://www.hotspawn.com/counter-strike/news/mouz-demolish-betboom-and-head-to-iem-beijing-2026-grand-final",
@@ -45,11 +50,6 @@
    {
     "title": "FURIA outlast MOUZ to reach back-to-back Finals at PGL Masters Bucharest 2026",
     "url": "https://www.hotspawn.com/counter-strike/news/furia-outlast-mouz-to-reach-back-to-back-finals-at-pgl-masters-bucharest-2026",
-    "date": "2026-10-30"
-   },
-   {
-    "title": "Nemiga stun Vitality to reach PGL Masters Bucharest 2026 Grand Final",
-    "url": "https://www.hotspawn.com/counter-strike/news/nemiga-stun-vitality-to-reach-pgl-masters-bucharest-2026-grand-final",
     "date": "2026-10-30"
    }
   ]
