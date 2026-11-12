@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1038,
+  "count": 1039,
   "items": [
+   {
+    "title": "BLAST Rivals Hong Kong 2026 groups come to an end as FUT and Legacy crash out",
+    "url": "https://www.hotspawn.com/counter-strike/news/blast-rivals-hong-kong-2026-groups-come-to-an-end-as-fut-and-legacy-crash-out",
+    "date": "2026-11-12"
+   },
    {
     "title": "BLAST Rivals Hong Kong 2026 Power Rankings: Can MOUZ maintain momentum post-Beijing?",
     "url": "https://www.hotspawn.com/counter-strike/news/blast-rivals-hong-kong-2026-power-rankings",
@@ -46,17 +51,27 @@
     "title": "MOUZ and FURIA among first IEM Beijing 2026 Playoffs teams",
     "url": "https://www.hotspawn.com/counter-strike/news/mouz-and-furia-among-first-iem-beijing-2026-playoffs-teams",
     "date": "2026-11-03"
-   },
-   {
-    "title": "All PGL Major Singapore 2026 Debutants – Teams and Players",
-    "url": "https://www.hotspawn.com/counter-strike/news/all-pgl-major-singapore-2026-debutants-teams-and-players",
-    "date": "2026-11-03"
    }
   ]
  },
  "gamerant": {
-  "count": 1778,
+  "count": 1781,
   "items": [
+   {
+    "title": "7 LEGO Star Wars Sets Officially Announced for January 2027",
+    "url": "https://gamerant.com/lego-star-wars-sets-january-2027-revealed/",
+    "date": "2026-11-12"
+   },
+   {
+    "title": "Jon Snow Officially Returns in Game of Thrones: Beyond The Wall",
+    "url": "https://gamerant.com/game-of-thrones-legends-beyond-the-wall-faction-jon-snow/",
+    "date": "2026-11-12"
+   },
+   {
+    "title": "Skyrim Officially Returns With Another Brand-New Release in 2027",
+    "url": "https://gamerant.com/elder-scrolls-5-skyrim-soundtrack-vinyl-release-2027/",
+    "date": "2026-11-12"
+   },
    {
     "title": "Bethesda Issues New Official Statement on Next Elder Scrolls 6: Sentinel Update",
     "url": "https://gamerant.com/elder-scrolls-6-sentinel-bethesda-no-updates/",
@@ -101,21 +116,6 @@
     "title": "Game of Thrones: Rose of the South Officially Revealed",
     "url": "https://gamerant.com/game-of-thrones-conquest-rose-of-the-south-gear-set/",
     "date": "2026-11-07"
-   },
-   {
-    "title": "Final Fantasy 14: Night in the Brume Officially Revealed",
-    "url": "https://gamerant.com/final-fantasy-14-ff14-night-in-the-brume-music-box/",
-    "date": "2026-11-05"
-   },
-   {
-    "title": "Fallout: Under The Stars Officially Announced",
-    "url": "https://gamerant.com/fallout-under-the-stars-quest-mod/",
-    "date": "2026-11-05"
-   },
-   {
-    "title": "Baldur's Gate 3 Xbox Mythic Achievement is Way Harder Than Its Platinum Trophy",
-    "url": "https://gamerant.com/baldurs-gate-3-xbox-vs-ps5-mythic-achievement-platinum/",
-    "date": "2026-11-05"
    }
   ]
  },
@@ -131,7 +131,7 @@
   "7593458460151254294": 1200000,
   "7600500931897101590": 1100000,
   "7584916975340539158": 1000000,
-  "7590110537942306070": 839100,
+  "7590110537942306070": 839200,
   "7610516609177865494": 565600,
   "7574897114036145430": 392500,
   "7609775208869711126": 387400
