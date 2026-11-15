@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1040,
+  "count": 1041,
   "items": [
+   {
+    "title": "FURIA clean sweep Spirit to win BLAST Rivals Hong Kong 2026",
+    "url": "https://www.hotspawn.com/counter-strike/news/furia-clean-sweep-spirit-to-win-blast-rivals-hong-kong-2026",
+    "date": "2026-11-15"
+   },
    {
     "title": "MOUZ and Falcons progress to BLAST Rivals Hong Kong 2026 Semi-Finals",
     "url": "https://www.hotspawn.com/counter-strike/news/mouz-and-falcons-progress-to-blast-rivals-hong-kong-2026-semi-finals",
@@ -46,11 +51,6 @@
     "title": "NAVI and BetBoom progress to IEM Beijing 2026 Semi-Finals",
     "url": "https://www.hotspawn.com/counter-strike/news/navi-and-betboom-progress-to-iem-beijing-2026-semi-finals",
     "date": "2026-11-06"
-   },
-   {
-    "title": "BetBoom and NAVI take final IEM Beijing 2026 Playoff berths",
-    "url": "https://www.hotspawn.com/counter-strike/news/betboom-and-navi-take-final-iem-beijing-2026-playoff-berths",
-    "date": "2026-11-04"
    }
   ]
  },
@@ -131,7 +131,7 @@
   "7593458460151254294": 1200000,
   "7600500931897101590": 1100000,
   "7584916975340539158": 1100000,
-  "7590110537942306070": 839200,
+  "7590110537942306070": 839300,
   "7610516609177865494": 565600,
   "7574897114036145430": 392500,
   "7609775208869711126": 387400
