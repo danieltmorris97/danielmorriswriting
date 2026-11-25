@@ -1,7 +1,12 @@
 {
  "hotspawn": {
-  "count": 1049,
+  "count": 1050,
   "items": [
+   {
+    "title": "PGL Major Singapore 2026 Day 2 Results: s1mple Sent Packing",
+    "url": "https://www.hotspawn.com/counter-strike/news/pgl-major-singapore-2026-day-2-results",
+    "date": "2026-11-25"
+   },
    {
     "title": "PGL Major Singapore 2026 Results Day 1: The Action Begins",
     "url": "https://www.hotspawn.com/counter-strike/news/pgl-major-singapore-2026-results-day-1",
@@ -46,17 +51,22 @@
     "title": "FURIA clean sweep Spirit to win BLAST Rivals Hong Kong 2026",
     "url": "https://www.hotspawn.com/counter-strike/news/furia-clean-sweep-spirit-to-win-blast-rivals-hong-kong-2026",
     "date": "2026-11-15"
-   },
-   {
-    "title": "MOUZ and Falcons progress to BLAST Rivals Hong Kong 2026 Semi-Finals",
-    "url": "https://www.hotspawn.com/counter-strike/news/mouz-and-falcons-progress-to-blast-rivals-hong-kong-2026-semi-finals",
-    "date": "2026-11-13"
    }
   ]
  },
  "gamerant": {
-  "count": 1804,
+  "count": 1806,
   "items": [
+   {
+    "title": "'There's Going to Be a Comparable Leap' CDPR Compares The Witcher 4 to GTA 6",
+    "url": "https://gamerant.com/the-witcher-4-gta-6-sequel-comparison/",
+    "date": "2026-11-25"
+   },
+   {
+    "title": "Diablo 4 Is Making a Huge Change to Bosses in Season 16",
+    "url": "https://gamerant.com/diablo-4-season-16-bosses-weakened-changes/",
+    "date": "2026-11-25"
+   },
    {
     "title": "Grand Theft Auto 6 Players Point Out Major Flaw with Jason and Lucia",
     "url": "https://gamerant.com/gta-6-jason-lucia-relationship-deterioration-quickly/",
@@ -106,16 +116,6 @@
     "title": "One of Baldur's Gate 3's Favorite Characters is Getting a Prequel",
     "url": "https://gamerant.com/baldurs-gate-3-shadowheart-prequel-book/",
     "date": "2026-11-21"
-   },
-   {
-    "title": "GTA 6 Online Release Has Players Worried For One Big Reason",
-    "url": "https://gamerant.com/gta-6-online-player-count-fps-issues/",
-    "date": "2026-11-21"
-   },
-   {
-    "title": "Grand Theft Auto 6 Was Played By Over Half of PS5 Users in One Region",
-    "url": "https://gamerant.com/gta-6-played-by-over-half-ps5-users/",
-    "date": "2026-11-21"
    }
   ]
  },
@@ -131,7 +131,7 @@
   "7593458460151254294": 1200000,
   "7600500931897101590": 1100000,
   "7584916975340539158": 1100000,
-  "7590110537942306070": 839400,
+  "7590110537942306070": 839500,
   "7610516609177865494": 565600,
   "7574897114036145430": 392500,
   "7609775208869711126": 387400
