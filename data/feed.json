@@ -1,7 +1,17 @@
 {
  "hotspawn": {
-  "count": 1051,
+  "count": 1052,
   "items": [
+   {
+    "title": "Best CS2 Pick’Ems For PGL Major Singapore 2026",
+    "url": "https://www.hotspawn.com/counter-strike/news/best-cs2-pickems-for-pgl-major-singapore-2026",
+    "date": "2026-11-27"
+   },
+   {
+    "title": "PGL Major Singapore 2026 Day 4 Results: 100 Thieves Survive at the Finish Line",
+    "url": "https://www.hotspawn.com/counter-strike/news/pgl-major-singapore-2026-day-4-results",
+    "date": "2026-11-27"
+   },
    {
     "title": "PGL Major Singapore 2026 Day 3 Results: FaZe Down",
     "url": "https://www.hotspawn.com/counter-strike/news/pgl-major-singapore-2026-day-3-results",
@@ -33,11 +43,6 @@
     "date": "2026-11-20"
    },
    {
-    "title": "Best CS2 Pick’Ems For PGL Major Singapore 2026",
-    "url": "https://www.hotspawn.com/counter-strike/news/best-cs2-pickems-for-pgl-major-singapore-2026",
-    "date": "2026-11-18"
-   },
-   {
     "title": "New CS2 update adds PGL Major Singapore 2026 stickers and Cobblestone",
     "url": "https://www.hotspawn.com/counter-strike/news/new-cs2-update-adds-pgl-major-singapore-2026-stickers-and-cobblestone",
     "date": "2026-11-17"
@@ -46,17 +51,27 @@
     "title": "Valve officially announces Cobblestone CS2 return with snowy makeover",
     "url": "https://www.hotspawn.com/counter-strike/news/valve-officially-announces-cobblestone-cs2-return",
     "date": "2026-11-17"
-   },
-   {
-    "title": "100 Thieves and fnatic qualify for PGL Cluj-Napoca 2027 via Closed Qualifier",
-    "url": "https://www.hotspawn.com/counter-strike/news/100-thieves-and-fnatic-qualify-for-pgl-cluj-napoca-2027-via-closed-qualifier",
-    "date": "2026-11-17"
    }
   ]
  },
  "gamerant": {
-  "count": 1810,
+  "count": 1813,
   "items": [
+   {
+    "title": "Rockstar Defends GTA 6's Most Controversial Feature",
+    "url": "https://gamerant.com/gta-6-criminal-profile-rockstar-comments/",
+    "date": "2026-11-27"
+   },
+   {
+    "title": "December 2 is Suddenly an Exciting Day for RuneScape Players",
+    "url": "https://gamerant.com/runescape-free-membership-trial-december-2-2026/",
+    "date": "2026-11-27"
+   },
+   {
+    "title": "Key GTA 6 Feature is Still Completely Broken, One Week After Launch",
+    "url": "https://gamerant.com/gta-6-weather-system-broken/",
+    "date": "2026-11-27"
+   },
    {
     "title": "December 11 is Suddenly an Exciting Day for GTA 6 Players",
     "url": "https://gamerant.com/gta-6-original-score-release-december-11-2026/",
@@ -100,21 +115,6 @@
    {
     "title": "New Open-World Steam Game is the Perfect GTA 6 Replacement, And It's 100% Free",
     "url": "https://gamerant.com/new-free-steam-game-rob-run-gta-6/",
-    "date": "2026-11-23"
-   },
-   {
-    "title": "PSA: All GTA 6 Players Should Do This After Completing Chapter 1",
-    "url": "https://gamerant.com/gta-6-burnt-house-money-chapter-1/",
-    "date": "2026-11-23"
-   },
-   {
-    "title": "One GTA 6 Realism Feature Doesn't Go Far Enough, Fans Say",
-    "url": "https://gamerant.com/gta-6-fat-jason-lucia/",
-    "date": "2026-11-23"
-   },
-   {
-    "title": "New GTA 6 Update Patch Notes Released for November 23",
-    "url": "https://gamerant.com/new-gta-6-update-patch-notes-november-23-2026/",
     "date": "2026-11-23"
    }
   ]
